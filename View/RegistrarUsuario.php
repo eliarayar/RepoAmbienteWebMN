@@ -5,10 +5,6 @@
     <meta charset="UTF-8" />
     <title>Proyecto Web MN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -19,9 +15,8 @@
         <div class="card " style="max-width:420px; width:100%;">
             <div class="card-body p-5">
                 <div class="text-center mb-3">
-                    <a href="index.html" class="mb-4 d-inline-block"><img src="images/logo-icon.svg" alt=""
-                            width="36">
-                        <span class="ms-2"> <img src="images/logo.svg" alt=""></span>
+                    <a href="index.html" class="mb-2 d-inline-block"><img src="images/logo-fidelitas.png" alt=""
+                            width="130">
                     </a>
                     <h1 class="card-title mb-5 h5">Registrar Usuario</h1>
 
@@ -30,31 +25,31 @@
                 <form class="needs-validation mt-3" novalidate>
                     <div class="mb-3">
                         <label for="identificación" class="form-label">Identificación</label>
-                        <input id="identificación" type="text" class="form-control" required/>
+                        <input id="identificación" type="text" class="form-control" required />
                     </div>
 
                     <form class="needs-validation mt-3" novalidate>
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input id="nombre" type="text" class="form-control" required/>
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input id="nombre" type="text" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="correoElectrónico" class="form-label">Correo Electrónico</label>
+                            <input id="correoElectrónico" type="text" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="contrasenna" class="form-label">Contraseña</label>
+                            <input id="contrasenna" type="password" class="form-control" required minlength="6" />
+                        </div>
+
+                        <button class="btn btn-primary w-100" type="submit">Procesar</button>
+                    </form>
+
+                    <div class="text-center mt-3 small text-muted">
+                        Ya tienes una cuenta? <a href="IniciarSesion.html" class="link-primary">Inicie Sesion</a>
                     </div>
-
-                    <div class="mb-3">
-                        <label for="correoElectrónico" class="form-label">Correo Electrónico</label>
-                        <input id="correoElectrónico" type="text" class="form-control" required/>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="contrasenna" class="form-label">Contraseña</label>
-                        <input id="contrasenna" type="password" class="form-control" required minlength="6"/>
-              </div>
-
-                    <button class="btn btn-primary w-100" type="submit">Procesar</button>
-                </form>
-
-                <div class="text-center mt-3 small text-muted">
-                    Ya tienes una cuenta? <a href="IniciarSesion.html" class="link-primary">Inicie Sesion</a>
-                </div>
             </div>
         </div>
     </div>
@@ -62,9 +57,8 @@
 
 
     <!-- Bootstrap JS -->
-         <script src="js/sidebar.js"></script>
-
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/registro.js"></script>
 </body>
 
 </html>
