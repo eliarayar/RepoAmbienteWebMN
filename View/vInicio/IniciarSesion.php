@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <title>Proyecto Web MN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="../css/main.css">
 
 </head>
 
@@ -14,7 +14,7 @@
   <div class="card " style="max-width:420px; width:100%;">
     <div class="card-body p-5">
       <div class="text-center mb-3">
-      <a href="index.html" class="mb-2 d-inline-block"><img src="images/logo-fidelitas.png" alt="" 
+      <a href="index.html" class="mb-2 d-inline-block"><img src="../images/logo-fidelitas.png" alt="" 
         width="130">
       </a>
         <h1 class="card-title mb-5 h5">Iniciar Sesion</h1>
@@ -31,7 +31,7 @@
         <div class="mb-3">
           <label for="contrasenna" class="form-label d-flex justify-content-between">
             <span>Contraseña</span>
-            <a href="RecuperarAcceso.html" class="small link-primary">Olvidó su contraseña?</a>
+            <a href="RecuperarAcceso.php" class="small link-primary">Olvidó su contraseña?</a>
           </label>
           <input id="contrasenna" type="password" class="form-control" required minlength="6"/>
         </div>
@@ -41,7 +41,7 @@
 
       <div class="text-center mt-3 small text-muted">
         No tiene una cuenta? 
-        <a href="RegistrarUsuario.html"  class="link-primary">Registrarse</a>
+        <a href="RegistrarUsuario.php"  class="link-primary">Registrarse</a>
       </div>
     </div>
   </div>

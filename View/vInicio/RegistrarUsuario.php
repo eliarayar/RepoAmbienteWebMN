@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <title>Proyecto Web MN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
         <div class="card " style="max-width:420px; width:100%;">
             <div class="card-body p-5">
                 <div class="text-center mb-3">
-                    <a href="index.html" class="mb-2 d-inline-block"><img src="images/logo-fidelitas.png" alt=""
+                    <a href="index.html" class="mb-2 d-inline-block"><img src="../images/logo-fidelitas.png" alt=""
                             width="130">
                     </a>
                     <h1 class="card-title mb-5 h5">Registrar Usuario</h1>
@@ -48,7 +48,7 @@
                     </form>
 
                     <div class="text-center mt-3 small text-muted">
-                        Ya tienes una cuenta? <a href="IniciarSesion.html" class="link-primary">Inicie Sesion</a>
+                        Ya tienes una cuenta? <a href="IniciarSesion.php" class="link-primary">Inicie Sesion</a>
                     </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="js/registro.js"></script>
+    <script src="../js/registro.js"></script>
 </body>
 
 </html>
