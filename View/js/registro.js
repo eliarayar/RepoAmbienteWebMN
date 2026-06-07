@@ -1,16 +1,15 @@
-//JQUERY
-$(function() {
+$(function () {
 
     $("#nombre").prop("readonly", true);
     $("#nombre").css("background-color", "#d9dde28d");
 
 });
 
-/*JAVASCRIPT
- document.addEventListener("DOMContentLoaded", function() {
+/*
+    document.addEventListener("DOMContentLoaded", function () {
+        
+        document.getElementById("nombre").readOnly = true;
+        document.getElementById("nombre").style.backgroundColor = "#d9dde28d";
 
-     document.getElementById("nombre").readOnly = true;
-     document.getElementById("nombre").style.backgroundColor = "#d9dde28d";
-
- });*/
-
+    });
+*/
