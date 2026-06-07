@@ -1,63 +1,61 @@
-<!DOCTYPE html>
+<?php
+    include_once '../../Controller/InicioController.php';
+    include_once '../LayoutExterno.php';
+?>
+
+<!doctype html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <title>Proyecto Web MN</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/main.css">
-</head>
+<?php
+    ImportCSS();
+?>
 
 <body>
-
-
     <div class="container d-flex align-items-center justify-content-center min-vh-100">
-        <div class="card " style="max-width:420px; width:100%;">
+        <div class="card" style="max-width: 420px; width: 100%">
             <div class="card-body p-5">
                 <div class="text-center mb-3">
                     <a href="index.html" class="mb-2 d-inline-block"><img src="../images/logo-fidelitas.png" alt=""
-                            width="130">
+                            width="130" />
                     </a>
-                    <h1 class="card-title mb-5 h5">Registrar Usuario</h1>
-
+                    <h1 class="card-title mb-5 h5">Registrar Usuarios</h1>
                 </div>
 
-                <form class="needs-validation mt-3" novalidate>
+                <form action="" method="post" class="needs-validation mt-3" novalidate>
                     <div class="mb-3">
-                        <label for="identificación" class="form-label">Identificación</label>
-                        <input id="identificación" type="text" class="form-control" required />
+                        <label for="identificacion" class="form-label">Identificación</label>
+                        <input id="identificacion" name="identificacion" type="text" class="form-control" required />
                     </div>
 
-                    <form class="needs-validation mt-3" novalidate>
-                        <div class="mb-3">
-                            <label for="nombre" class="form-label">Nombre</label>
-                            <input id="nombre" type="text" class="form-control" required />
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="correoElectrónico" class="form-label">Correo Electrónico</label>
-                            <input id="correoElectrónico" type="text" class="form-control" required />
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="contrasenna" class="form-label">Contraseña</label>
-                            <input id="contrasenna" type="password" class="form-control" required minlength="6" />
-                        </div>
-
-                        <button class="btn btn-primary w-100" type="submit">Procesar</button>
-                    </form>
-
-                    <div class="text-center mt-3 small text-muted">
-                        Ya tienes una cuenta? <a href="IniciarSesion.php" class="link-primary">Inicie Sesion</a>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input id="nombre" name="nombre" type="text" class="form-control" required />
                     </div>
+
+                    <div class="mb-3">
+                        <label for="correoElectronico" class="form-label">Correo Electrónico</label>
+                        <input id="correoElectronico" name="correoElectronico" type="text" class="form-control" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="contrasenna" class="form-label">Contraseña</label>
+                        <input id="contrasenna" name="contrasenna" type="password" class="form-control" required minlength="6" />
+                    </div>
+
+                    <button id="btnRegistrar" name="btnRegistrar" type="submit" class="btn btn-primary w-100">Procesar</button>
+                </form>
+
+                <div class="text-center mt-3 small text-muted">
+                    ¿Ya tiene una cuenta?
+                    <a href="IniciarSesion.php" class="link-primary">Inicie Sesión</a>
+                </div>
             </div>
         </div>
     </div>
 
-
-
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <?php
+        ImportJS();
+    ?>
     <script src="../js/registro.js"></script>
 </body>
 
