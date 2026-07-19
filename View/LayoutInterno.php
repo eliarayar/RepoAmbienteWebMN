@@ -13,6 +13,7 @@ function ImportCSS()
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="../css/main.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         </head>
     ';
 }
@@ -22,15 +23,19 @@ function ImportJS()
     echo '
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="../js/sidebar.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.21.0/dist/jquery.validate.min.js"></script>
     ';
 }
 
 function Navbar()
 {
     $nombreUsuario = "";
+    $nombreRol = "";
     if(isset($_SESSION["NombreUsuario"]))
     {
         $nombreUsuario = $_SESSION["NombreUsuario"];
+        $nombreRol = isset($_SESSION["NombreRol"]) ? $_SESSION["NombreRol"] : "";
     }
     else
     {
@@ -56,20 +61,30 @@ function Navbar()
                     <li class="ms-3 dropdown">
                         <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                            <h4 class="mb-0 small">' . $nombreUsuario . '</h4>
+                           <span class="text-muted" style="font-size:0.75rem;">' . $nombreRol . '</span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end p-0" style="min-width: 200px;">
+                        <div class="dropdown-menu dropdown-menu-end p-0 mt-3" style="min-width: 200px;">
                             <div>
                             
-                                <div class="p-3 d-flex flex-column gap-1 small lh-lg">
-                                    <a href="#!" class="">
-                                        <span> Mi perfil</span>
+                                <div class="p-2 d-flex flex-column gap-0 small">
+
+                                    <a href="../vUsuario/CambiarPerfil.php" class="btn btn-sm text-start py-1 fs-6">
+                                        <i class="fa-solid fa-user me-2"></i>
+                                        Mi perfil
                                     </a>
-                                    <a href="#!" class="">
-                                        <span> Seguridad</span>
+
+                                    <a href="../vUsuario/CambiarContrasenna.php" class="btn btn-sm text-start py-1 fs-6">
+                                        <i class="fa-solid fa-shield-halved me-2"></i>
+                                        Seguridad
                                     </a>
-                                    <a href="#!" class="">
-                                        <span> Salir</span>
-                                    </a>
+
+                                    <form action="" method="POST">
+                                        <button id="btnSalir" name="btnSalir" type="submit" class="btn btn-sm bg-transparent border-0 text-start py-1 fs-6">
+                                            <i class="fa-solid fa-right-from-bracket me-2"></i>
+                                            Salir
+                                        </button>
+                                    </form>
+
                                 </div>
 
                             </div>
@@ -87,13 +102,13 @@ function Sidebar()
     echo '
         <aside id="sidebar" class="sidebar">
         <div class="logo-area">
-            <a href="index.html" class="d-inline-flex">
+            <a href="../vInicio/Principal.php" class="d-inline-flex">
                 <img src="../images/logo-fidelitas.png" alt="" width="100" class="logo-full" />
                 <img src="../images/logo-fidelitas-letra.png" alt="" width="32" class="logo-collapsed" />
             </a>
         </div>
         <ul class="nav flex-column mt-5">
-            <li><a class="nav-link active" href="index.html"><i class="ti ti-home"></i><span
+            <li><a class="nav-link active" href=""><i class="ti ti-home"></i><span
                         class="nav-text">Dashboard</span></a></li>
         </ul>
         </aside>

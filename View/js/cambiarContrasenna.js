@@ -1,39 +1,24 @@
 $(function () {
 
-    $("#nombre").prop("readonly", true);
-    $("#nombre").css("background-color", "#d9dde28d");
-
-    $("#formRegistrarUsuarios").validate({
+    $("#formCambiarContrasenna").validate({
         rules: {
-            identificacion: {
-                required: true
-            },
-            nombre: {
-                required: true
-            },
-            correoElectronico: {
-                required: true,
-                email: true
-            },
-            contrasenna: {
+            nuevaContrasenna: {
                 required: true,
                 minlength: 5
+            },
+            confirmarContrasenna: {
+                required: true,
+                equalTo: "#nuevaContrasenna"
             }
         },
         messages: {
-            identificacion: {
-                required: "Campo obligatorio."
-            },
-            nombre: {
-                required: "Campo obligatorio."
-            },
-            correoElectronico: {
-                required: "Campo obligatorio.",
-                email: "Formato no válido."
-            },
-            contrasenna: {
+            nuevaContrasenna: {
                 required: "Campo obligatorio.",
                 minlength: "Mínimo 5 caracteres."
+            },
+            confirmarContrasenna: {
+                required: "Campo obligatorio.",
+                equalTo: "Las contraseñas no coinciden."
             }
         },
         errorElement: "div",

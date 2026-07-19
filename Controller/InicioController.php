@@ -35,6 +35,9 @@
         {
             $_SESSION["NombreUsuario"] = $datos["Nombre"];
             $_SESSION["ConsecutivoUsuario"] = $datos["Consecutivo"];
+            $_SESSION["CorreoElectronicoUsuario"] = $datos["CorreoElectronico"];
+            $_SESSION["ConsecutivoRol"] = $datos["ConsecutivoRol"];
+            $_SESSION["NombreRol"] = $datos["NombreRol"];
 
             header("Location: ../../View/vInicio/Principal.php");
             exit();
@@ -56,7 +59,11 @@
 
             if($actualizacion)
             {
-                EnviarCorreo("Recuperación de acceso", "Su nueva contraseña temporal es: $temporal", $datos['CorreoElectronico']);
+                $plantilla = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/RepoAmbienteWebMN/View/templates/Recuperacion.html');
+                $plantilla = str_replace("{{TEMPORAL}}", $temporal, $plantilla);
+                $plantilla = str_replace("{{NOMBRE}}", $datos['Nombre'], $plantilla);
+
+                EnviarCorreo("Recuperación de acceso", $plantilla, $datos['CorreoElectronico']);
 
                 header("Location: ../../View/vInicio/IniciarSesion.php");
                 exit();
@@ -65,3 +72,9 @@
 
         $_POST["Mensaje"] = "No se ha podido recuperar su acceso correctamente";
     }
+
+    if(isset($_POST["btnSalir"]))        
+    {
+        CerrarSesion();
+    }
+    
