@@ -1,5 +1,10 @@
 <?php
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/RepoAmbienteWebMN/Controller/UtilitarioController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/RepoAmbienteWebMN/Model/InicioModel.php';
+
+    if(session_status() == PHP_SESSION_NONE){
+        session_start();
+    }
 
     if(isset($_POST["btnRegistrar"]))
     {
@@ -28,9 +33,35 @@
 
         if($datos)
         {
+            $_SESSION["NombreUsuario"] = $datos["Nombre"];
+            $_SESSION["ConsecutivoUsuario"] = $datos["Consecutivo"];
+
             header("Location: ../../View/vInicio/Principal.php");
             exit();
         }
 
         $_POST["Mensaje"] = "No se ha podido autenticar su información correctamente";
+    }
+
+    if(isset($_POST["btnRecuperarAcceso"]))
+    {
+        $correoElectronico = $_POST["correoElectronico"];
+
+        $datos = ValidarCorreoModel($correoElectronico);
+        
+        if($datos)
+        {
+            $temporal = generarContrasena();            
+            $actualizacion = ActualizarContrasennaModel($datos['Consecutivo'], $temporal);
+
+            if($actualizacion)
+            {
+                EnviarCorreo("Recuperación de acceso", "Su nueva contraseña temporal es: $temporal", $datos['CorreoElectronico']);
+
+                header("Location: ../../View/vInicio/IniciarSesion.php");
+                exit();
+            }
+        }
+
+        $_POST["Mensaje"] = "No se ha podido recuperar su acceso correctamente";
     }

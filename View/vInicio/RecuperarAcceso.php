@@ -1,4 +1,5 @@
 <?php
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/RepoAmbienteWebMN/Controller/InicioController.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/RepoAmbienteWebMN/View/LayoutExterno.php';
 ?>
 

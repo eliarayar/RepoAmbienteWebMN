@@ -1,8 +1,6 @@
-CREATE DATABASE  IF NOT EXISTS `mn` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
-USE `mn`;
--- MySQL dump 10.13  Distrib 8.0.46, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.45, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: mn
+-- Host: 127.0.0.1    Database: ambientewebmn
 -- ------------------------------------------------------
 -- Server version	5.5.5-10.4.32-MariaDB
 
@@ -26,12 +24,12 @@ DROP TABLE IF EXISTS `tb_error`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tb_error` (
   `Consecutivo` int(11) NOT NULL AUTO_INCREMENT,
-  `Mensaje` varchar(8000) NOT NULL,
-  `FechaHora` datetime NOT NULL,
-  `Accion` varchar(100) NOT NULL,
-  `ConsecutivoUsuario` int(11) NOT NULL,
+  `Mensaje` varchar(45) NOT NULL,
+  `FechaHora` varchar(45) NOT NULL,
+  `Accion` varchar(45) NOT NULL,
+  `ConsecutivoUsuario` varchar(45) NOT NULL,
   PRIMARY KEY (`Consecutivo`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +38,7 @@ CREATE TABLE `tb_error` (
 
 LOCK TABLES `tb_error` WRITE;
 /*!40000 ALTER TABLE `tb_error` DISABLE KEYS */;
-INSERT INTO `tb_error` VALUES (1,'Duplicate entry \'jmatamoros60796@ufide.ac.cr\' for key \'UK_CorreoElectronico\'','2026-06-17 19:10:35','RegistrarUsuarioModel',0),(2,'Duplicate entry \'jmatamoros60796@ufide.ac.cr\' for key \'UK_CorreoElectronico\'','2026-06-17 19:43:19','RegistrarUsuarioModel',0),(3,'Duplicate entry \'jmatamoros60796@ufide.ac.cr\' for key \'UK_CorreoElectronico\'','2026-06-17 19:45:22','RegistrarUsuarioModel',0),(4,'Duplicate entry \'jmatamoros60796@ufide.ac.cr\' for key \'UK_CorreoElectronico\'','2026-06-17 19:45:47','RegistrarUsuarioModel',0),(5,'Duplicate entry \'\' for key \'UK_Identificacion\'','2026-06-17 20:27:10','RegistrarUsuarioModel',0),(6,'Duplicate entry \'\' for key \'UK_Identificacion\'','2026-06-17 20:27:15','RegistrarUsuarioModel',0),(7,'Duplicate entry \'304590415\' for key \'UK_Identificacion\'','2026-06-17 20:53:29','RegistrarUsuarioModel',0),(8,'Duplicate entry \'304590415\' for key \'UK_Identificacion\'','2026-06-17 20:55:38','RegistrarUsuarioModel',0),(9,'Duplicate entry \'304590415\' for key \'UK_Identificacion\'','2026-06-17 20:56:03','RegistrarUsuarioModel',0);
+INSERT INTO `tb_error` VALUES (1,'Unknown column \'pIdentifiacion\' in \'where cla','','IniciarSesionModel','0'),(2,'Unknown column \'pIdentifiacionCorreo\' in \'whe','','IniciarSesionModel','0'),(3,'Unknown column \'pIdentifiacionCorreo\' in \'whe','','IniciarSesionModel','0'),(4,'Unknown column \'pIdentifiacionCorreo\' in \'whe','','IniciarSesionModel','0'),(5,'Unknown column \'pIdentifiacionCorreo\' in \'whe','','IniciarSesionModel','0'),(6,'Unknown column \'pIdentifiacionCorreo\' in \'whe','','IniciarSesionModel','0'),(7,'Unknown column \'pIdentifiacionCorreo\' in \'whe','','IniciarSesionModel','0'),(8,'Unknown column \'pIdentifiacionCorreo\' in \'whe','','IniciarSesionModel','0'),(9,'Unknown column \'pIdentifiacionCorreo\' in \'whe','','IniciarSesionModel','0'),(10,'Unknown column \'pIdentifiacionCorreo\' in \'whe','','IniciarSesionModel','0'),(11,'Unknown column \'pIdentifiacionCorreo\' in \'whe','','IniciarSesionModel','0'),(12,'Unknown column \'pIdentifiacionCorreo\' in \'whe','','IniciarSesionModel','0');
 /*!40000 ALTER TABLE `tb_error` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,16 +50,16 @@ DROP TABLE IF EXISTS `tb_usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tb_usuario` (
-  `Consecutivo` int(11) NOT NULL AUTO_INCREMENT,
+  `Consecutivo` int(1) NOT NULL AUTO_INCREMENT,
   `Identificacion` varchar(15) NOT NULL,
   `Nombre` varchar(250) NOT NULL,
   `CorreoElectronico` varchar(100) NOT NULL,
   `Contrasenna` varchar(10) NOT NULL,
   `Estado` bit(1) NOT NULL,
   PRIMARY KEY (`Consecutivo`),
-  UNIQUE KEY `UK_Identificacion` (`Identificacion`),
-  UNIQUE KEY `UK_CorreoElectronico` (`CorreoElectronico`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  UNIQUE KEY `UK_CorreoElectronico` (`CorreoElectronico`),
+  UNIQUE KEY `Identificacion` (`Identificacion`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,13 +68,39 @@ CREATE TABLE `tb_usuario` (
 
 LOCK TABLES `tb_usuario` WRITE;
 /*!40000 ALTER TABLE `tb_usuario` DISABLE KEYS */;
-INSERT INTO `tb_usuario` VALUES (16,'304590415','EDUARDO JOSE CALVO CASTILLO','ecalvo90415@ufide.ac.cr','90415',_binary '');
+INSERT INTO `tb_usuario` VALUES (1,'118670899','ARAYA ROJAS ELIZABETH DEL CARMEN','eliarayarojas@gmail.com','220103',_binary '');
 /*!40000 ALTER TABLE `tb_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Dumping routines for database 'mn'
+-- Dumping routines for database 'ambientewebmn'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `spActualizarContrasenna` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spActualizarContrasenna`(
+	pConsecutivo 	int,
+    pContrasenna 	varchar (10)
+    )
+BEGIN
+
+	UPDATE 	tb_usuario
+	SET 	Contrasenna = pContrasenna
+	WHERE 	Consecutivo = pConsecutivo;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `spIniciarSesionUsuario` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -88,9 +112,10 @@ UNLOCK TABLES;
 /*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spIniciarSesionUsuario`(
-	pIdentificacion 	varchar(15), 
-    pContrasenna		varchar(10)
-)
+	pIdentificacionCorreo 	varchar(100),
+	pContrasenna			varchar(10)
+    
+    )
 BEGIN
 
 	SELECT 	Consecutivo,
@@ -98,10 +123,11 @@ BEGIN
 			Nombre,
 			CorreoElectronico,
 			Estado
-	FROM 	tb_usuario
-    WHERE	Identificacion = pIdentificacion
-		AND Contrasenna = pContrasenna
-        AND Estado = 1;
+FROM tb_usuario
+#WHERE Identificacion = pIdentifiacion
+WHERE (Identificacion = pIdentifiacionCorreo OR CorreoElectronico = pIdentificacionCorreo)
+AND Contrasenna= pContrasenna
+AND Estado = 1;	
 
 END ;;
 DELIMITER ;
@@ -120,14 +146,15 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spRegistrarError`(
-	pMensaje 			varchar(8000), 
-    pAccion				varchar(100), 
-    pConsecutivoUsuario	int(11)
+	pMensaje					varchar(8000),
+    pAccion						varchar(100),
+    pConsecutivoUsuario			int(11)
 )
 BEGIN
+	
+    INSERT INTO tb_error (Mensaje,Accion,ConsecutivoUsuario)
+	VALUES (pMensaje, pAccion, pConsecutivoUsuario);
 
-	INSERT INTO tb_error (Mensaje,FechaHora,Accion,ConsecutivoUsuario)
-	VALUES (pMensaje, NOW(), pAccion, pConsecutivoUsuario);
 
 END ;;
 DELIMITER ;
@@ -146,15 +173,46 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spRegistrarUsuario`(
-	pIdentificacion 	varchar(15), 
-    pNombre				varchar(250), 
-    pCorreoElectronico	varchar(100), 
-    pContrasenna		varchar(10)
-)
+	pIdentificacion 	varchar(15),
+	pNombre				varchar(250),
+	pCorreoElectronico	varchar(100),
+	pContrasenna		varchar(10)
+    
+    )
 BEGIN
 
 	INSERT INTO tb_usuario (Identificacion, Nombre, CorreoElectronico, Contrasenna, Estado)
 	VALUES (pIdentificacion, pNombre, pCorreoElectronico, pContrasenna, 1);
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `spValidarCorreo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spValidarCorreo`(
+	pCorreoElectronico 	varchar(100)    
+    )
+BEGIN
+
+	SELECT 	Consecutivo,
+			Identificacion,
+			Nombre,
+			CorreoElectronico,
+			Estado
+FROM tb_usuario
+WHERE CorreoElectronico = pCorreoElectronico
+AND Estado = 1;	
 
 END ;;
 DELIMITER ;
@@ -172,4 +230,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-17 20:57:27
+-- Dump completed on 2026-07-19 15:03:54

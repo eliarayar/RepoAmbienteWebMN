@@ -1,5 +1,9 @@
 <?php
 
+if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
+
 function ImportCSS()
 {
     echo '
@@ -23,6 +27,17 @@ function ImportJS()
 
 function Navbar()
 {
+    $nombreUsuario = "";
+    if(isset($_SESSION["NombreUsuario"]))
+    {
+        $nombreUsuario = $_SESSION["NombreUsuario"];
+    }
+    else
+    {
+        header("Location: IniciarSesion.php");
+        exit();
+    }
+
     echo '
         <div id="overlay" class="overlay"></div>
 
@@ -40,35 +55,20 @@ function Navbar()
                     
                     <li class="ms-3 dropdown">
                         <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="../images/avatar-1.jpg" alt="" class="avatar avatar-sm rounded-circle" />
+                           <h4 class="mb-0 small">' . $nombreUsuario . '</h4>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end p-0" style="min-width: 200px;">
                             <div>
-                                <div class="d-flex gap-3 align-items-center border-dashed border-bottom px-3 py-3">
-                                    <div>
-                                        <h4 class="mb-0 small">Shrina Tesla @imshrina</h4>
-                                    </div>
-                                </div>
+                            
                                 <div class="p-3 d-flex flex-column gap-1 small lh-lg">
                                     <a href="#!" class="">
-
-                                        <span>Home</span>
+                                        <span> Mi perfil</span>
                                     </a>
                                     <a href="#!" class="">
-
-                                        <span> Inbox</span>
+                                        <span> Seguridad</span>
                                     </a>
                                     <a href="#!" class="">
-
-                                        <span> Chat</span>
-                                    </a>
-                                    <a href="#!" class="">
-
-                                        <span> Activity</span>
-                                    </a>
-                                    <a href="#!" class="">
-
-                                        <span> Account Settings</span>
+                                        <span> Salir</span>
                                     </a>
                                 </div>
 
