@@ -1,4 +1,5 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT'] . '/RepoAmbienteWebMN/Controller/InicioController.php';
 
 if(session_status() == PHP_SESSION_NONE){
     session_start();
@@ -12,8 +13,10 @@ function ImportCSS()
         <title>Proyecto Web MN</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap5.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" />
         <link rel="stylesheet" href="../css/main.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         </head>
     ';
 }
@@ -22,9 +25,14 @@ function ImportJS()
 {
     echo '
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="../js/sidebar.js"></script>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.21.0/dist/jquery.validate.min.js"></script>
+        <script src="https://cdn.datatables.net/2.3.4/js/dataTables.js"></script>
+        <script src="https://cdn.datatables.net/2.3.4/js/dataTables.bootstrap5.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/locales-all.global.min.js"></script>
+        <script src="../js/sidebar.js"></script>
     ';
 }
 
@@ -69,18 +77,18 @@ function Navbar()
                                 <div class="p-2 d-flex flex-column gap-0 small">
 
                                     <a href="../vUsuario/CambiarPerfil.php" class="btn btn-sm text-start py-1 fs-6">
-                                        <i class="fa-solid fa-user me-2"></i>
+                                        <i class="ti ti-user me-2"></i>
                                         Mi perfil
                                     </a>
 
                                     <a href="../vUsuario/CambiarContrasenna.php" class="btn btn-sm text-start py-1 fs-6">
-                                        <i class="fa-solid fa-shield-halved me-2"></i>
+                                        <i class="ti ti-shield-lock me-2"></i>
                                         Seguridad
                                     </a>
 
                                     <form action="" method="POST">
                                         <button id="btnSalir" name="btnSalir" type="submit" class="btn btn-sm bg-transparent border-0 text-start py-1 fs-6">
-                                            <i class="fa-solid fa-right-from-bracket me-2"></i>
+                                            <i class="ti ti-logout-2 me-2"></i>
                                             Salir
                                         </button>
                                     </form>
@@ -99,6 +107,12 @@ function Navbar()
 
 function Sidebar()
 {
+    $consecutivoRol = "";
+    if(isset($_SESSION["ConsecutivoRol"]))
+    {
+        $consecutivoRol = $_SESSION["ConsecutivoRol"];
+    }
+
     echo '
         <aside id="sidebar" class="sidebar">
         <div class="logo-area">
@@ -107,10 +121,21 @@ function Sidebar()
                 <img src="../images/logo-fidelitas-letra.png" alt="" width="32" class="logo-collapsed" />
             </a>
         </div>
-        <ul class="nav flex-column mt-5">
-            <li><a class="nav-link active" href=""><i class="ti ti-home"></i><span
-                        class="nav-text">Dashboard</span></a></li>
-        </ul>
+        <ul class="nav flex-column mt-5">';
+
+            if($consecutivoRol == 1) {
+                echo '<li><a class="nav-link active" href="../vCursos/Cursos.php"><i class="ti ti-book-2"></i><span
+                        class="nav-text">Cursos</span></a></li>';
+            }
+            else {   
+                echo '<li><a class="nav-link active" href=""><i class="ti ti-school"></i><span
+                        class="nav-text">Mi Matricula</span></a></li>';
+                        
+                echo '<li><a class="nav-link active" href=""><i class="ti ti-file-upload"></i><span
+                        class="nav-text">Mis Entregas</span></a></li>';
+            }
+            
+            echo '</ul>
         </aside>
     ';
 }

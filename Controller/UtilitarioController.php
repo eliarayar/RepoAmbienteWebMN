@@ -21,7 +21,7 @@
             require 'PHPMailer/src/PHPMailer.php';
             require 'PHPMailer/src/SMTP.php';
 
-            $correoSalida = "abc@gmail.com";
+            $correoSalida = "eliarayarojas@gmail.com";
             $contrasennaSalida = "";
 
             if($contrasennaSalida == "")
