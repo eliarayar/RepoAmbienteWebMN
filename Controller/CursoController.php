@@ -32,7 +32,7 @@
         {
             $consecutivo = $consecutivoCurso["ID"];
 
-            $imagen = '/RepoMN/View/Uploads/' . $consecutivo . '.png';
+            $imagen = '/RepoAmbienteWebMN/View/Uploads/' . $consecutivo . '.png';
             $origen = $_FILES["imagen"]["tmp_name"];
             $destino = $_SERVER['DOCUMENT_ROOT'] . $imagen;
             copy($origen, $destino);
@@ -60,7 +60,7 @@
         {
             if($_FILES["imagen"]["tmp_name"] != null)
             {
-                $imagen = '/RepoMN/View/Uploads/' . $consecutivo . '.png';
+                $imagen = '/RepoAmbienteWebMN/View/Uploads/' . $consecutivo . '.png';
                 $origen = $_FILES["imagen"]["tmp_name"];
                 $destino = $_SERVER['DOCUMENT_ROOT'] . $imagen;
                 copy($origen, $destino);
